@@ -1,0 +1,7 @@
+Welcome to Koach.io, <%= @pending_patient.name %></h1>
+
+    Your physical therapist, <%= @pt.name %> has added you to Koach.io,
+      to finish setting up your account,
+      just follow this link: <%= @url %>
+
+Thank You have a great day!

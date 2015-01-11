@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Koach.io, <%= @pending_patient.name %></h1>
+    <p>
+      Your physical therapist, <%= @pt.name %> has added you to Koach.io,
+      to finish setting up your account,
+      <br/>
+    </p>
+    <p>
+      just follow <%= link_to "this link", @url %>.
+    </p>
+    <p>Thank You have a great day!</p>
+  </body>
+</html>

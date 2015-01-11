@@ -1,0 +1,29 @@
+<h1>Welcome, <%= @pt.name %> </h1>
+
+<table>
+  <tr>
+    <th>Patient Name:</th>
+    <th>Email:</th>
+    <th>Diagnosis</th>
+  </tr>
+  <% @pt.pending_patients.each do |pending_patient| %>
+    <tr>
+      <td><%= pending_patient.name %></td>
+      <td><%= pending_patient.email %></td>
+      <td><%= pending_patient.diagnosis %></td>
+      <td><%= button_to "Edit", edit_pending_patient_url(pending_patient), method: :get %></td>
+      <td><%= button_to "Delete", pending_patient_url(pending_patient),
+      method: :delete %></td>
+    </tr>
+  <% end %>
+  <% @pt.patients.each do |patient| %>
+    <tr>
+      <td><%= link_to patient.name, patient_url(patient) %></td>
+      <td><%= patient.email %></td>
+      <td><%= patient.diagnosis %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= button_to "Add Patient", new_pending_patient_url, method: :get %>

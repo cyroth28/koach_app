@@ -1,0 +1,10 @@
+Sign In
+<%= form_for :pt, url: pt_session_url, method: :post do |f| %>
+  <label>Email: </label>
+  <input type="text" name="pt[email]" value="<%= @pt.email %>">
+  <br>
+  <label>Password: </label>
+  <input type="password" name="pt[password]" value="<%= @pt.password %>">
+  <br>
+  <input type="submit" value="Sign In!">
+<% end %>

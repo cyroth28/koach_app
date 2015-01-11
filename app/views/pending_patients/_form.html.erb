@@ -1,0 +1,21 @@
+<% action_url = pending_patient.persisted? ? pending_patient_url(pending_patient) : pending_patients_url %>
+<% submit_value = pending_patient.persisted? ? "Update Patient" : "Create New Patient" %>
+<% header_title = pending_patient.persisted? ? "Edit Patient" : "Add Patient" %>
+<% method = pending_patient.persisted? ? "patch" : "post" %>
+
+<h3><%= header_title %></h3>
+<%= form_for :pending_patient, url: action_url, method: method.to_sym do |f| %>
+  <label>Name:</label>
+  <input type="text" name="pending_patient[name]" value="<%= @pending_patient.name %>">
+  <br>
+  <label>Email: </label>
+  <input type="text" name="pending_patient[email]" value="<%= @pending_patient.email %>">
+  <br>
+  <label >Diagnosis:</label>
+  <input type="text" name="pending_patient[diagnosis]" value="<%= @pending_patient.diagnosis %>">
+  <br>
+  <label >Insurance Company:</label>
+  <input type="text" name="pending_patient[insurance_company]" value="<%= @pending_patient.insurance_company %>">
+  <br>
+  <input type="submit" value="<%= submit_value %>">
+<% end %>

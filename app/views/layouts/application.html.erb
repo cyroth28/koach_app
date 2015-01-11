@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KoachApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <%= error %>
+    <br>
+  <% end %>
+<% end %>
+
+<% if current_user %>
+  <% url = current_user.class == Pt ? pt_session_url : patient_session_url %>
+  <%= form_for :session, url: url, method: :delete do |f| %>
+    <%= f.submit "Log out" %>
+  <% end %>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
